@@ -13,12 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: docker/build-push-action@v1
-      with:
-        username: ${{ DOCKER_USERNAME }}
-        password: ${{ DOCKER_PASSWORD }}
-        registry: deepakgcsib/raml-mock-service
-        repository: raml-mock-service
-        tags: v1
-    - name: Build the Docker image
-      
+      - name: Build the Docker image
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ DOCKER_USERNAME }}
+          password: ${{ DOCKER_PASSWORD }}
+          registry: deepakgcsib/raml-mock-service
+          repository: raml-mock-service
+          tags: v1
