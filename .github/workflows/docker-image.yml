@@ -30,6 +30,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: deepakgcsib/raml-mock-service:latest
+          tags: deepakgcsib/raml-mock-service:latest-test
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
