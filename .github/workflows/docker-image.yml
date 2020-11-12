@@ -1,4 +1,4 @@
-name: Docker buildx cache CI 
+name:  Buildx cache - Docker Image CI 
 
 on:
   push:
