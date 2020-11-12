@@ -3,7 +3,7 @@ name: Latest - Docker Image CI
 on:
   push:
     branches:
-      - main
+      - mainDisabled
 jobs:
   push:
     runs-on: ubuntu-latest
