@@ -18,7 +18,7 @@ jobs:
         run: |
           echo "${GITHUB_REF:10}"
       - name: Set tag
-         echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       - name: Set tag to latest
         if: endsWith(github.ref, '/main')
         run: |
