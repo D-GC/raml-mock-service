@@ -6,25 +6,20 @@ name: Manual workflow
 # or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  push:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+      - uses: actions/checkout@v2
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+      - name: Get the version
+        id: vars
+        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+      - name: Print version
+        run: echo "Version ${{ steps.vars.outputs.tag }}"   
+      - name: Build the latest Docker image
+        run: docker build . --file Dockerfile --tag deepakgcsib/raml-mock-service:latest
+      - name: Push the latest Docker image
+        run: docker push deepakgcsib/raml-mock-service:latest
