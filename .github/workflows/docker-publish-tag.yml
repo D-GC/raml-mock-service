@@ -3,7 +3,7 @@ name: Tags - Docker Image CI
 on:
   push:
     tags:
-      - '*'
+      - 'disable*'
 jobs:
   push:
     runs-on: ubuntu-latest
