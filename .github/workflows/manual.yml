@@ -38,4 +38,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: deepakgcsib/raml-mock-service:$tag
+          tags: deepakgcsib/raml-mock-service:${tag}
