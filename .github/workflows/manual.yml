@@ -15,13 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set tag
-        run: echo ::set-env name=tag::$(echo ${GITHUB_REF:10})
+        #run: echo ::set-env name=tag::$(echo ${GITHUB_REF:10})
+        run:  echo "tag=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
       - name: Set tag to latest
         if: endsWith(github.ref, '/main')
         run: |
-          echo "::set-env name=tag::latest"
+          echo "tag=latest" >> $GITHUB_ENV
       - name: Print tag name
-        run: echo "${{env.tag}}"    
+        run: echo "1. ${{tag}} - 2. $tag - 3. ${tag}"    
 #       - name: Set up Docker Buildx
 #         uses: docker/setup-buildx-action@v1
         
