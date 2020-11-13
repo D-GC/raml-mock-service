@@ -17,15 +17,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set tag
-        #run: echo ::set-env name=tag::$(echo ${GITHUB_REF:10})
         run:  echo "tag=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-      - name: Set tag to latest
+      
+      - name: Set tag to latest if branch is main
         if: endsWith(github.ref, '/main')
         run: |
           echo "tag=latest" >> $GITHUB_ENV
+     
       - name: Set tag var
         id: vars
         run: echo ::set-output name=tag::$(echo ${tag})
+      
       - name:   Print tag
         run:  echo ${{steps.vars.outputs.tag}}
 
