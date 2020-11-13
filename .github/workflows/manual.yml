@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "tag=latest" >> $GITHUB_ENV
       - name: Print tag name
-        run: echo "1. ${{tag}} - 2. $tag - 3. ${tag}"    
+        run: echo " 1. $tag - 3. ${tag}"    
 #       - name: Set up Docker Buildx
 #         uses: docker/setup-buildx-action@v1
         
