@@ -1,4 +1,4 @@
-FROM node
+FROM node:12
 RUN npm install -g osprey-mock-service
 WORKDIR /raml
 
