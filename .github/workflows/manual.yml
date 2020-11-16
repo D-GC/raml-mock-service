@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Publish Docker image CI
+name: Publish Docker Image CI
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
