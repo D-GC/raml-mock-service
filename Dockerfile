@@ -1,5 +1,5 @@
 FROM node:12
-RUN npm install -g osprey-mock-service
+RUN npm install -g osprey-mock-service@1.0
 WORKDIR /raml
 
 VOLUME /raml
