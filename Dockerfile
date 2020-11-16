@@ -9,4 +9,4 @@ ENV RAML_PATH=api.raml
 COPY bin/init.sh /init.sh
 RUN chmod +x /init.sh
 EXPOSE 80
-CMD /init.sh
+CMD ["/init.sh"]
