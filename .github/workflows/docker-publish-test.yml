@@ -1,6 +1,6 @@
 # docker hub publish image CI using docker command which is already installed in ubuntu-latest
 # using workflow_dispatch event and passing logLevel
-name: Latest - Docker Image CI
+name: Manual - Docker Image CI
 
 on:
   # Create workflows that are manually triggered using below event:
