@@ -28,3 +28,6 @@ jobs:
         python-version: '3.9.0-beta.4'
     - name: Checkout
       uses: actions/checkout@v2
+    - name: python version
+      run: python -V    
+      
