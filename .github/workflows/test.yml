@@ -1,0 +1,18 @@
+name: Test manual event
+on:
+  workflow_dispatch:
+#echo ::set-output name=TAG::$(echo $TAG | sed -e 's/^v//')
+env:
+  TAG: "v0.0.1"
+  GITHUB_ENV: ""
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Tag
+        id: get_tag
+        run: |
+          echo "TAG=Hi:" >> $GITHUB_ENV
+      - name: print
+        run: |
+          echo "TAG: ${{env.TAG}}"
